@@ -1,0 +1,311 @@
+:root {
+  /* Retro print palette inspired by your reference */
+  --paper: #f4e4c3;
+  --ink: #0d1b2a;
+  --navy: #1b263b;
+  --orange: #e4572e;
+  --orange-dark: #b33c1a;
+  --yellow: #f5b42a;
+  --teal: #4cb5ae;
+  --purple: #6c4ab6;
+
+  --text: var(--ink);
+  --muted: #444;
+
+  --radius: 14px;
+  --radius-lg: 18px;
+
+  --shadow-sticker: 4px 4px 0px var(--ink);
+}
+
+/* ---------------------- 
+   GLOBAL 
+----------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text);
+  padding: 1rem;
+}
+
+/* Main page container */
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---------------------- 
+   HEADER 
+----------------------- */
+
+/* ----------------------
+   SMALL BRAND BANNER
+----------------------- */
+
+.brand-banner {
+  width: 100%;
+  text-align: center;
+  margin: 0.5rem 0 1rem 0; /* tighter spacing */
+}
+
+.brand-logo {
+  height: 40px;    /* MUCH smaller */
+  width: auto;
+  object-fit: contain;
+
+  /* minimal styling */
+  padding: 0.25rem 0.6rem;
+  background: #ffffff;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  box-shadow: 2px 2px 0 var(--ink);
+
+  display: inline-block;
+}
+
+.header h1 {
+  font-size: 2.4rem;
+  margin: 0 0 0.25rem;
+  font-weight: 900;
+  color: var(--navy);
+  text-shadow: -2px 2px 0 var(--yellow);
+}
+
+.header p {
+  margin: 0.25rem 0;
+  color: var(--muted);
+  max-width: 650px;
+  font-size: 1rem;
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* ---------------------- 
+   GRID 
+----------------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------- 
+   TILE (Card)
+----------------------- */
+
+.tile {
+  background: #fff6e8;
+  border: 3px solid var(--ink);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  position: relative;
+  box-shadow: var(--shadow-sticker);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* Fun background doodle accents */
+.tile::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  width: 40px;
+  height: 40px;
+  background: var(--orange);
+  opacity: 0.15;
+  border-radius: 6px;
+  rotate: -6deg;
+}
+
+.tile::after {
+  content: "";
+  position: absolute;
+  bottom: -14px;
+  right: -14px;
+  width: 50px;
+  height: 50px;
+  background: var(--teal);
+  opacity: 0.18;
+  border-radius: 50%;
+  rotate: 8deg;
+}
+
+/* ---------------------- 
+   TILE HEADER 
+----------------------- */
+
+.tile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.tile-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.tile-number {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--orange-dark);
+}
+
+/* ---------------------- 
+   INPUTS 
+----------------------- */
+
+input[type="text"],
+textarea {
+  width: 100%;
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  padding: 0.45rem 0.6rem;
+  font-size: 0.9rem;
+  background: #fff;
+  color: var(--text);
+  outline: none;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--orange);
+}
+
+textarea {
+  min-height: 3rem;
+}
+
+::placeholder {
+  color: #777;
+}
+
+/* ---------------------- 
+   BUTTONS 
+----------------------- */
+
+button {
+  border-radius: var(--radius);
+  border: 2px solid var(--ink);
+  padding: 0.4rem 0.9rem;
+  font-size: 0.86rem;
+  background: var(--yellow);
+  color: var(--ink);
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 0.1s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+}
+
+button.primary {
+  background: var(--orange);
+  color: white;
+  border-color: var(--ink);
+}
+
+button.primary:hover:not(:disabled) {
+  background: var(--orange-dark);
+}
+
+/* ---------------------- 
+   STATUS TEXT 
+----------------------- */
+
+.tile-status {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.tile-status.error {
+  color: var(--orange-dark);
+  font-weight: 700;
+}
+
+/* ---------------------- 
+   IMAGE AREA 
+----------------------- */
+
+.image-container {
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  background: #fff;
+  box-shadow: 2px 2px 0 var(--ink);
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.4rem;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.image-placeholder {
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.image-tools {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+}
+
+/* ---------------------- 
+   FOOTER 
+----------------------- */
+
+.footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#global-status {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
