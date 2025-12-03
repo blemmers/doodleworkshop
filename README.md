@@ -7,7 +7,7 @@ A small tool that generates doodles so none of you have to draw, you can thank m
 1. Install Node 18+
 2. Clone the repo:
    git clone <URL>
-   cd crazy8-ai
+   cd doodleworkshop
 3. Install dependencies:
    npm install
 4. Create a .env file:
